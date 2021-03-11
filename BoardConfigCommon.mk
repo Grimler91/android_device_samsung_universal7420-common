@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/universal7420-common
+COMMON_PATH := device/samsung/universal7420-common
 TARGET_LD_SHIM_LIBS :=
 
 TARGET_SLSI_VARIANT := bsp
@@ -65,8 +65,8 @@ TARGET_USES_64_BIT_BINDER := true
 #
 # Bluetooth
 #
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/include/hardware
-BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/configs/bluetooth/libbt_vndcfg.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/include/hardware
+BOARD_CUSTOM_BT_CONFIG := $(COMMON_PATH)/configs/bluetooth/libbt_vndcfg.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_SAMSUNG_BLUETOOTH := true
@@ -92,7 +92,7 @@ PRODUCT_SKIP_FINGERPRINT_FROM_FILE := true
 TARGET_UNOFFICIAL_BUILD_ID := TeamNexus
 
 TARGET_SPECIFIC_HEADER_PATH := \
-	$(LOCAL_PATH)/include
+	$(COMMON_PATH)/include
 
 #
 # Camera
@@ -198,7 +198,7 @@ TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 #
 # Manifest
 #
-DEVICE_MANIFEST_FILE += device/samsung/universal7420-common/manifest.xml
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
 
 #
 # Networking
@@ -236,7 +236,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3124019200
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ROOT_EXTRA_FOLDERS += efs
-TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/configs/config.fs
+TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
 #
 # Radio
@@ -252,12 +252,12 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7420.recovery
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/ramdisk/fstab.samsungexynos7420.recovery
 BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_HAS_DOWNLOAD_MODE := true
 
 ## Releasetools - for resizing system filesystem
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/universal7420-common/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
 
 #
 # Renderscript
@@ -271,12 +271,12 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_64 := cortex-a57
 BOARD_USES_TRUST_KEYMASTER := true
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/universal7420-common/sepolicy
+BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 BOARD_SEPOLICY_VERS := $(PLATFORM_SDK_VERSION).0
 SELINUX_IGNORE_NEVERALLOWS := true
 
 ## Seccomp filters
-BOARD_SECCOMP_POLICY += device/samsung/universal7420-common/seccomp
+BOARD_SECCOMP_POLICY += $(COMMON_PATH)/seccomp
 
 #
 # Sensors
@@ -287,7 +287,7 @@ TARGET_NO_SENSOR_PERMISSION_CHECK := true
 # TWRP
 #
 ifneq ($(strip $(wildcard $(TOP)/bootable/recovery/variables.h)),)
-  -include device/samsung/universal7420-common/twrp.mk
+  -include $(COMMON_PATH)/twrp.mk
 endif
 
 # Vendor Security Patch Level
@@ -379,4 +379,4 @@ TARGET_GAPPS_OVERRIDE += \
     AudioFX
 
 # inherit target conditionals
--include device/samsung/universal7420-common/target.mk
+-include $(COMMON_PATH)/target.mk
