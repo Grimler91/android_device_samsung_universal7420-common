@@ -270,13 +270,16 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_64 := cortex-a57
 #
 BOARD_USES_TRUST_KEYMASTER := true
 
-# SELinux
-BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
-BOARD_SEPOLICY_VERS := $(PLATFORM_SDK_VERSION).0
-SELINUX_IGNORE_NEVERALLOWS := true
-
 ## Seccomp filters
 BOARD_SECCOMP_POLICY += $(COMMON_PATH)/seccomp
+
+include device/lineage/sepolicy/exynos/sepolicy.mk
+BOARD_SEPOLICY_TEE_FLAVOR := mobicore
+include device/samsung_slsi/sepolicy/sepolicy.mk
+BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
+
+SELINUX_IGNORE_NEVERALLOWS := true
 
 #
 # Sensors
