@@ -53,3 +53,6 @@ set_prop(modemloader, radio_prop)
 
 # /data/media/0
 allow rild media_rw_data_file:dir { open read search };
+
+allow rild init:dir search;
+allow rild init:file r_file_perms;

@@ -1,3 +1,9 @@
+# debug types
+type debugfs_ion, fs_type, debugfs_type;
+type debugfs_ion_dma, fs_type, debugfs_type;
+type debugfs_mali, fs_type, debugfs_type;
+type debugfs_mali_mem, fs_type, debugfs_type;
+
 ### efs types
 type baro_delta_factoryapp_efs_file, file_type;
 # widewine, drm
@@ -24,8 +30,10 @@ type sysfs_sec, fs_type, fs_type, fs_type, mlstrustedobject;
 type sysfs_camera_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_light_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_light, fs_type, sysfs_type, mlstrustedobject;
-type sysfs_vsync, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_graphics, sysfs_type, fs_type, mlstrustedobject;
+type sysfs_decon, sysfs_type, r_fs_type, fs_type;
+type sysfs_decon_writable, sysfs_type, rw_fs_type, fs_type;
+type sysfs_usb_supply, sysfs_type, fs_type;
 
 allow sysfs_type tmpfs:filesystem associate;
 

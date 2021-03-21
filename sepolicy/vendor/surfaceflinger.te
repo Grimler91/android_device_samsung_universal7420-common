@@ -1,3 +1,4 @@
 # HWC
 allow surfaceflinger secmem_device:chr_file rw_file_perms;
-allow surfaceflinger sysfs_vsync:chr_file rw_file_perms;
+allow surfaceflinger sysfs_decon:file r_file_perms;
+allow surfaceflinger sysfs_decon_writable:file rw_file_perms;

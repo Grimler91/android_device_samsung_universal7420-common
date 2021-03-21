@@ -21,7 +21,7 @@ allow cpboot-daemon cgroup:dir create_dir_perms;
 allow cpboot-daemon kmsg_device:chr_file rw_file_perms;
 
 # /dev/umts_boot0
-allow cpboot-daemon mif_device:chr_file rw_file_perms;
+allow cpboot-daemon vendor_radio_device:chr_file {rw_file_perms ioctl};
 # /dev/mbin0
 allow cpboot-daemon ufs_device:blk_file r_file_perms;
 # /dev/spi_boot_link
@@ -29,6 +29,9 @@ allow cpboot-daemon radio_device:chr_file rw_file_perms;
 # /dev/block/mmcblk0p13
 allow cpboot-daemon block_device:dir r_dir_perms;
 allow cpboot-daemon radio_block_device:blk_file r_file_perms;
+
+# /sys/bus/platform/drivers/mif_sipc5
+allow cpboot-daemon mif_device:dir r_dir_perms;
 
 # /efs
 allow cpboot-daemon efs_file:dir r_dir_perms;

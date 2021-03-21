@@ -1,5 +1,5 @@
 # Input devices
-allow hal_power_default sysfs_input:dir r_dir_perms;
+allow hal_power_default sysfs_input:dir search;
 allow hal_power_default sysfs_input:file rw_file_perms;
 
 # CPU devices
@@ -7,9 +7,17 @@ allow hal_power_default sysfs_devices_system_cpu:dir search;
 allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
 
 # Lights
-allow hal_power_default sysfs_light:dir search;
-allow hal_power_default sysfs_light:file rw_file_perms;
+allow hal_power_default sysfs_light_writable:dir search;
+allow hal_power_default sysfs_light_writable:file rw_file_perms;
 
 # Graphics
 allow hal_power_default sysfs_graphics:dir search;
 allow hal_power_default sysfs_graphics:file rw_file_perms;
+
+# /sys/devices/system/cpu
+allow hal_power_default power_hal_sysfs:dir search;
+allow hal_power_default power_hal_sysfs:file rw_file_perms;
+
+# /sys/devices/14ac0000.mali/dvfs_min_lock
+allow hal_power_default sysfs_fingerprint:dir search;
+allow hal_power_default sysfs_fingerprint:file rw_file_perms;

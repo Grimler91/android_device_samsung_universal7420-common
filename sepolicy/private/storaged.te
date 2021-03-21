@@ -1,0 +1,3 @@
+# storaged.te
+
+r_dir_file(storaged, sysfs_disk_stat)

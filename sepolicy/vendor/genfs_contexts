@@ -1,0 +1,15 @@
+# DEBUGFS
+genfscon debugfs /mali/                                                         u:object_r:debugfs_mali:s0
+genfscon debugfs /mali/mem/                                                     u:object_r:debugfs_mali_mem:s0
+genfscon debugfs /ion                                                           u:object_r:debugfs_ion:s0
+genfscon debugfs /dma_buf                                                       u:object_r:debugfs_ion_dma:s0
+
+genfscon sysfs /devices/battery.52/power_supply                                 u:object_r:sysfs_usb_supply:s0
+genfscon sysfs /devices/14e10000.hsi2c/i2c-6/6-0049/input/input0                u:object_r:sysfs_input:s0
+genfscon sysfs /devices/14d30000.spi/spi_master/spi1/spi1.0/iio:device1         u:object_r:sysfs_sensors:s0
+genfscon sysfs /devices/13620000.adc/iio:device0                                u:object_r:sysfs_sensors:s0
+genfscon sysfs /bus/platform/drivers                                            u:object_r:mif_device:s0
+genfscon sysfs /devices/15570000.ufs/host0                                      u:object_r:sysfs_disk_stat:s0
+
+# fingerprint
+genfscon sysfs /devices/14ac0000.mali                                           u:object_r:sysfs_fingerprint:s0

@@ -1,0 +1,2 @@
+allow hal_light_default sysfs_light_writable:dir search;
+allow hal_light_default sysfs_light_writable:file rw_file_perms;

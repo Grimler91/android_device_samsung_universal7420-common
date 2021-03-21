@@ -2,7 +2,7 @@
 allow init debugfs:dir mounton;
 
 # Mount EFS on /efs
-allow init efs_file:dir  mounton;
+allow init efs_file:dir mounton;
 
 # /dev/block/sda[0-19]
 allow init ufs_device:blk_file rw_file_perms;
@@ -28,3 +28,7 @@ allow init sysfs_camera_writable:file { relabelto setattr };
 allow init sysfs_camera_writable:filesystem associate;
 
 unix_socket_connect(init, property, rild)
+
+allow init power_hal_sysfs:file rw_file_perms;
+allow init proc_interrupts:file r_file_perms;
+allow init system_data_file:file lock;
